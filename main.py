@@ -210,17 +210,19 @@ if __name__ == '__main__':
                     pygame.quit()
                     quit()
                 if event.key == pygame.K_LEFT:
-                    cam.rot[0] -= 1
+                    cam.rot[0] = (cam.rot[0] - 1) % 360
                     print(cam.rot[0])
                 if event.key == pygame.K_RIGHT:
-                    cam.rot[0] += 1
+                    cam.rot[0] = (cam.rot[0] + 1) % 360
                     print(cam.rot[0])
                 if event.key == pygame.K_UP:
-                    cam.rot[1] -= 1
-                    print(cam.rot[1])
+                    if cam.rot[1] < 90:
+                        cam.rot[1] -= 1
+                        print(cam.rot[1])
                 if event.key == pygame.K_DOWN:
-                    cam.rot[1] += 1
-                    print(cam.rot[1])
+                    if cam.rot[1] > -90:
+                        cam.rot[1] += 1
+                        print(cam.rot[1])
                 if event.key == pygame.K_q:
                     cam.pos.x += 1
                     print(cam.pos.x)
