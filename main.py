@@ -92,17 +92,17 @@ class camera:
                         translated_points.append(point2D(int(x), int(y)))
 
                     # wireframe
-                    for p in translated_points:
-                        if p.x > 0 and p.x < w or p.y > 0 and p.y < h and dist2d(translated_points[translated_points.index(p)-1], translated_points[translated_points.index(p)]) < max(w, h):
-                            #pygame.draw.line(screen, (0, 0, 0), translated_points[0], p)
-                            pygame.draw.line(screen, (255, 255, 255), ((t:=translated_points[translated_points.index(p)-1]).x, t.y), ((t:=translated_points[translated_points.index(p)]).x, t.y))
+#                    for p in translated_points:
+#                        if p.x > 0 and p.x < w or p.y > 0 and p.y < h and dist2d(translated_points[translated_points.index(p)-1], translated_points[translated_points.index(p)]) < max(w, h):
+#                            #pygame.draw.line(screen, (0, 0, 0), translated_points[0], p)
+#                            pygame.draw.line(screen, (255, 255, 255), ((t:=translated_points[translated_points.index(p)-1]).x, t.y), ((t:=translated_points[translated_points.index(p)]).x, t.y))
 
                     # this is unshaded
-                    # pygame.draw.polygon(screen, (255, 255, 255), [(p.x, p.y) for p in translated_points])
+                    pygame.draw.polygon(screen, (255, 255, 255), [(p.x, p.y) for p in translated_points])
 
                     # draw vertices
-                    for p in translated_points:
-                        pygame.draw.circle(screen, (255, 0, 0), (p.x, p.y), 2)
+#                    for p in translated_points:
+#                        pygame.draw.circle(screen, (255, 0, 0), (p.x, p.y), 2)
         pygame.display.update()
 
 
